@@ -4,9 +4,9 @@
 void signal_handle_calculation(SemaphoreHandle_t request, SemaphoreHandle_t response, struct signal_data *data)
 {
     printf("taken the sempahore. Performing the calculation\n");
-    xSemaphoreTake(request, 100);
+    xSemaphoreTake(request, portMAX_DELAY);
     data->output = data->input + 5;
-    vTaskDelay(100);
+    //vTaskDelay(100);
     xSemaphoreGive(response);
 }
 
